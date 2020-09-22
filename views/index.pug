@@ -1,0 +1,96 @@
+extends layout
+
+block content
+  #slideshow
+    #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+      ol.carousel-indicators
+        li.active(data-target='#carouselExampleIndicators', data-slide-to='0')
+        li(data-target='#carouselExampleIndicators', data-slide-to='1')
+        li(data-target='#carouselExampleIndicators', data-slide-to='2')
+      .carousel-inner
+        .carousel-item.active
+          img.d-block.w-100(src='../images/sample1.png', alt='First slide')
+        .carousel-item
+          img.d-block.w-100(src='../images/sample2.jpg', alt='Second slide')
+        .carousel-item
+          img.d-block.w-100(src='../images/sample3.jpg', alt='Third slide')
+      a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.sr-only Previous
+      a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.sr-only Next
+  br
+  .my-container
+    #greetings.jumbotron
+      h1#greetings-head Welcome to Froom Vroom
+      p#greetings-qoute Our target is customer satisfaction
+    //- offers contents
+    #offers
+      h4 On Sell
+      .row
+        .col-lg-2.col-md-4.col-xs-12
+          .my-card-lg
+            a(href="#")
+              img.my-card-lg-img(src='/images/sample2.jpg', alt='Card image cap')
+              .my-card-lg-body
+                .my-card-lg-title Card title8
+                .my-card-lg-price
+                  | $54.10
+        .col-lg-2.col-md-4.col-xs-12#view-offers
+          a(href='#') View All &rsaquo;&rsaquo;
+    br
+    #top-sells
+      h4 Top Sells
+      .row
+        .col-lg-2.col-md-4.col-xs-12
+          .my-card-lg
+            a(href="#")
+              img.my-card-lg-img(src='/images/sample2.jpg', alt='Card image cap')
+              .my-card-lg-body
+                .my-card-lg-title Card title
+                .my-card-lg-price
+                  | $35.49
+        
+        .col-lg-2.col-md-4.col-xs-12#view-offers
+          a(href='#') View All &rsaquo;&rsaquo;
+    br
+    //- show by category
+    #deals-by-category
+      if products
+        h4 Deals By Category
+        .row
+          if categories
+            each category in categories
+              if (category.subcategory && category.subcategory.length != 0)
+                each subcategory in category.subcategory
+                  .col-md-6.col-xs-12
+                    .deals-by-category-inner
+                      h5= subcategory
+                      .row
+                        each product in products
+                          if product.product_category == subcategory
+                            .col-md-3.col-xs-6
+                              .my-card-sm
+                                a(href="/categories/show/" + category.category_name + "/" + subcategory + "/" + product._id)
+                                  img.my-card-sm-img(src='/images/upload/products/'+product.product_image, alt=product.product_title)
+                                  .my-card-sm-body
+                                    .my-card-sm-title= product.product_title
+                                    .my-card-sm-price BDT#{product.product_price}
+              else
+                .col-md-6.col-xs-12
+                    .deals-by-category-inner
+                      h5= category.category_name
+                      .row
+                        each product in products
+                          if product.product_category == category.category_name
+                            .col-md-3.col-xs-6
+                              .my-card-sm
+                                a(href="/categories/show/" + category.category_name + "/" + subcategory + "/" + product._id)
+                                  img.my-card-sm-img(src='/images/upload/products/'+product.product_image, alt=product.product_title)
+                                  .my-card-sm-body
+                                    .my-card-sm-title= product.product_title
+                                    .my-card-sm-price BDT#{product.product_price}
+
+
+

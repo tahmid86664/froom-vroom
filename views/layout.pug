@@ -1,0 +1,97 @@
+doctype html
+html
+  head
+    title Froom Vroom: #{title}
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous")
+    link(href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet")
+    script(src="https://unpkg.com/scrollreveal")
+
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href='/') Froom Vroom
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item(class=(title === 'Home' ? 'active' : ''))
+            a.nav-link(href='/')
+              | HOME
+              span.sr-only (current)
+          //- categories here
+          if categories
+            each category in categories
+              if (category.subcategory && category.subcategory.length != 0)
+                li.nav-item.dropdown
+                  a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                    | #{category.category_name.toUpperCase()}
+                  .dropdown-menu(aria-labelledby='navbarDropdown')
+                    each subcategory in category.subcategory
+                      a.dropdown-item(class=(title === subcategory ? 'active' : ''))(href='/categories/show/' + category.category_name + '/' + subcategory) #{subcategory.toUpperCase()}
+              else
+                li.nav-item(class=(title === category.category_name ? 'active' : ''))
+                  a.nav-link(href='/categories/show/' + category.category_name)
+                    | #{category.category_name.toUpperCase()}
+            li.nav-item(class=(title === 'Contact Us' ? 'active' : ''))
+              a.nav-link(href='/contact')
+                | CONTACT US
+            li.nav-item(class=(title === 'About Us' ? 'active' : ''))
+              a.nav-link(href='/about')
+                | ABOUT US
+        //- account 
+        ul.navbar-nav.navbar-right
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | ACCOUNT
+            .dropdown-menu(aria-labelledby='navbarDropdown')
+              if !user
+                a.dropdown-item(class=(title === 'User Login' ? 'active' : ''))(href='/users/login') 
+                  span.glyphicon.glyphicon-user LOGIN
+                a.dropdown-item(class=(title === 'User Register' ? 'active' : ''))(href='/users/register') 
+                  span.glyphicon.glyphicon-user REGISTER
+              a.dropdown-item(class=(title === 'Cart' ? 'active' : ''))(href='/users/mycart')
+                span.glyphicon.glyphicon-user MY CART
+              if user
+                a.dropdown-item(href='/users/:'+user.username+'/'+'dashboard') MY DASHBOARD
+                .dropdown-divider
+                a.dropdown-item(href='/users/logout') LOG OUT
+        form.form-inline.my-2.my-lg-0
+          input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+
+    .container
+      != messages()
+    block content
+
+
+
+    //- footer
+    //-   p &copy; Vroom, 2020
+  footer
+    .supports
+      h3 Supports
+      hr
+      a(href='/about') About us
+      a(href='/contact') Contact
+      a(href='#') Privacy policy
+      a(href='#') Terms of use
+    .account
+      h3 Account
+      hr
+      a(href='/users/login') Login
+      if user
+        a(href='/users/:'+user.username+'/'+'dashboard') My Dashboard
+      a(href='/users/mycart') My Cart
+    #copyright
+      p © Froom Vroom, 2020
+
+    //- scripts
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
+    script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous")
+
+    script(src="https://unpkg.com/scrollreveal")
+    script(src="/javascripts/animation.js")
+      

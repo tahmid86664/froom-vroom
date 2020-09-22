@@ -1,0 +1,99 @@
+extends layout
+
+block content
+    .container
+        h1 Admin Panel
+        #admin-category.jumbotron(style="background-color: #8ad1ed;")
+            h5 Categories already here:
+            - var count = 1
+            if categories
+                each category in categories
+                    if (category.subcategory && category.subcategory.length !=0)
+                        p #{count}. #{category.category_name}
+                            span(style="color: #9e0300;") 
+                                |(subcategories: #{category.subcategory})
+                    else
+                        p #{count}. #{category.category_name}
+                    - count++
+        .jumbotron
+            h3 Customization Panel
+            a(href="#add_product" onclick="showPanel('add_product')") Add Product
+            br
+            del
+                a(href="#") Remove Product
+            br
+            a(href="#add_category" onclick="showPanel('add_category')") Add Category
+            br
+            del
+                a(href="/admin/remove_category") Remove Category
+            br
+            a(href="#add_subcategory" onclick="showPanel('add_subcategory')") Add Sub-Category
+            br
+            del
+                a(href="/admin/add_admin") Add Admin
+            br
+            del
+                a(href="/admin/add_admin") Remove Admin
+            br
+
+        //- add product related
+        ul.errors
+            if errors
+                each e in errors
+                    li.alert.alert-danger= e.msg
+        #add_product
+            form(action="/admin/panel" method="post" enctype="multipart/form-data")
+                .form-group
+                    label(for="product-title-label") Product Title
+                    input.form-control(type="text" name="product_title")
+                .form-group
+                    label(for="product-cat-label") Product Category
+                    input.form-control(type="text" name="product_category")
+                .form-group
+                    label(for="product-price-label") Product Price
+                    input.form-control(type="text" name="product_price")
+                .form-group
+                    label(for="product-desc-label") Product Description
+                    textarea.form-control(type="text" name="product_description" rows="5")
+                .form-group
+                    label(for="product-img-label") Product Image
+                    input.form-control(type="file" name="product_img")
+                button.btn.btn-primary(type="submit" value="submit" name="add_product_btn") Add Product
+                br
+                a(href="#" onclick="closePanel('add_product')") Close
+
+        //- add category related
+        #add_category
+            form(action="/admin/panel/add_category" method="post")
+                .form-group
+                    label(for="category-name-label") Category Names
+                    input.form-control(type="text" name="category_name")
+                button.btn.btn-primary(type="submit" value="submit" name="add_category_btn") Add Category
+                br
+                a(href="#" onclick="closePanel('add_category')") Close
+
+        //- add category related
+        #add_subcategory
+            form(action="/admin/panel/add_subcategory" method="post")
+                .form-group
+                    label(for="category-name-label") Category Names(existed)
+                    input.form-control(type="text" name="category_name_for_sub")
+                .form-group
+                    label(for="subcategory-name-label") Sub-Category Names
+                    input.form-control(type="text" name="subcategory_name")  
+                button.btn.btn-primary(type="submit" value="submit" name="add_subcategory_btn") Add Category
+                br
+                a(href="#" onclick="closePanel('add_subcategory')") Close
+
+
+    //- scripts
+    script.
+        function showPanel(elementID){
+            let element = document.getElementById(elementID);
+            element.style.display = "block";
+        }
+        function closePanel(elementID){
+            let element = document.getElementById(elementID);
+            element.style.display = "none";
+        }
+

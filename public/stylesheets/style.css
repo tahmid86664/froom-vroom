@@ -1,0 +1,661 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.success{
+  background-color: #77fca8;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.success li{
+  list-style: none;
+}
+.error{
+  background-color:#e85f58;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.error li{
+  list-style: none;
+}
+
+#slideshow img{
+  width: 100%;
+  height: 600px;
+}
+
+.my-container{
+  margin: 0 3%;
+}
+
+#offers .card-img-top, #top-sells .card-img-top{
+  width: 100%;
+  height: 250px;
+}
+
+#view-offers{
+  position: relative;
+}
+
+#view-offers a{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 1.3rem;
+}
+
+#offers{
+  background-color: #c2e6e0;
+  padding: 1.5%;
+  border-radius: 10px;
+}
+
+#top-sells{
+  background-color: #dee6d3;
+  padding: 1.5%;
+  border-radius: 10px;
+}
+
+#deals-by-category{
+  background-color: #e8e8e8;
+  padding: 1.5%;
+  border-radius: 10px;
+}
+
+.deals-by-category-inner{
+  background-color: #f0f0f0;
+  padding: 1.1%;
+  border-radius: 10px;
+}
+
+
+.my-card-sm{
+  /* border: 1px solid #6d0f0f; */
+  width: 100%;
+  background-color: #d1dee8;
+  border-radius: 5px;
+  padding: 20px 0;
+}
+
+.my-card-sm-img{
+  margin-left: 5%;
+  width: 90%;
+  height: 120px;
+}
+
+.my-card-sm-body{
+  margin-left: 5%;
+}
+
+.my-card-sm-title{
+  font-style: italic;
+  font-weight: bold;
+  color: #4c4c4d;
+}
+
+.my-card-sm-price{
+  display: inline-block;
+  color:#2d8a01;
+}
+
+
+.my-card-lg{
+  width: 100%;
+  background-color: #d1dee8;
+  border-radius: 10px;
+  padding: 25px 0;
+}
+
+.my-card-lg-img{
+  margin-left: 5%;
+  width: 90%;
+  height: 200px;
+}
+
+.my-card-lg-body{
+  margin-left: 5%;
+}
+
+.my-card-lg-title{
+  font-style: italic;
+  font-weight: bold;
+  color: #4c4c4d;
+  font-size: 1.2rem;
+}
+
+.my-card-lg-price{
+  display: inline-block;
+  color:#2d8a01;
+  font-size: 1.1rem;
+}
+
+/* =========================== admin login ========================== */
+#admin-login{
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* =========================== admin panel ========================== */
+#add_product{
+  display: none;
+}
+#add_category{
+  display: none;
+}
+#add_subcategory{
+  display: none;
+}
+
+#admin-category p{
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================= category wise product show ============================ */
+.category-line{
+  color: #00B7FF;
+}
+
+.product-container{
+  display: flex;
+  width: 90%;
+  height: auto;
+  border: 2px solid #b0b0b0;
+  border-radius: 10px;
+  padding: 10px 15px;
+  background-color: #e8e8e8;
+}
+.product-image-container{
+  width: 20%;
+  height: auto;
+  /* border: 1px solid black; */
+  margin-right: 5%;
+}
+
+.product-image-container img{
+  width: 100%;
+  /* height: 100%; */
+  border-radius: 5px;
+}
+
+.product-info-container{
+  width: calc(100% - 25%);
+  /* border: 1px solid black; */
+}
+.product-title{
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.3rem;
+}
+.product-price{
+  color:#2d8a01;
+}
+.product-description{
+  font-size: 0.8rem;
+}
+
+
+/* ========================= individual product show ============================ */
+.individual-product-container{
+  display: flex;
+}
+
+.individual-product-img-container{
+  width: 30%;
+  margin-right: 5%;
+}
+
+.individual-product-img-container img{
+  width: 100%;
+  border-radius: 10px;
+
+}
+
+.individual-product-info-container{
+  width: calc(100% - 35%);
+}
+
+/* quantity */
+#qty-input{
+  width: 50px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.comments-container .image-container img{
+  width: 70%;
+  height: auto;
+}
+
+
+
+/* =====================================Login design============================================ */
+.login-form{
+  width: 100%;
+  height: 500px;
+}
+
+#login{
+  background-color: #23193b;
+  color: #ffffff;
+  width: 350px;
+  height: 400px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  /* text-align: center; */
+  border-radius: 5px;
+  /* line-height: 50px; */
+}
+
+#login h2{
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  -webkit-transform: translate(-50%, -10%);
+  -ms-transform: translate(-50%, -10%);
+  -o-transform: translate(-50%, -10%);
+  margin-top: 20px;
+  font-variant-caps: all-petite-caps;
+  font-size: 2rem;
+}
+
+#login hr{
+  width: 50%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  -webkit-transform: translate(-50%, -10%);
+  -ms-transform: translate(-50%, -10%);
+  -o-transform: translate(-50%, -10%);
+  margin: 0;
+  padding: 0;
+  color: #00ff33;
+  background-color: #00ff33;
+}
+
+
+#login input[type="text"]{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  -webkit-transform: translate(-50%, -35%);
+  -ms-transform: translate(-50%, -35%);
+  -o-transform: translate(-50%, -35%);
+  margin: 5px;
+  padding: 10px;
+  background: transparent;
+  border-width: 3px;
+  border-radius: 20px;
+  color: #ffffff;
+  border-color: #af7aff;
+  font-size: 1rem;
+  transition: border 0.5s ease-out;
+  z-index: 100;
+}
+
+#login input[type="password"]{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  margin: 5px;
+  padding: 10px;
+  background: transparent;
+  border-width: 3px;
+  border-radius: 20px;
+  color: #ffffff;
+  border-color: #af7aff;
+  font-size: 1rem;
+  transition: border 0.5s ease-out;
+  z-index: 100;
+}
+
+.login-form a{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  -webkit-transform: translate(-50%, -35%);
+  -ms-transform: translate(-50%, -35%);
+  -o-transform: translate(-50%, -35%);
+}
+
+#login input[type="text"]:hover,#login input[type="password"]:hover{
+  /* width: 270px; */
+  border-color: #00b3ff;
+  border-radius: 10px;
+}
+
+#login input[type="text"]:focus,#login input[type="password"]:focus{
+  border-color: #00ff33;
+  border-radius: 10px;
+}
+
+#login-button{
+  position: absolute;
+  top: 70%;
+  left: 45%;
+  transform: translate(-45%, -70%);
+  -webkit-transform: translate(-45%, -70%);
+  -ms-transform: translate(-45%, -70%);
+  -o-transform: translate(-45%, -70%);
+  margin: 15px;
+  padding: 5px 15px;
+  background-image: linear-gradient(to right,#00ff33, #73ff00);
+  background-image: -webkit-linear-gradient(to right,#00ff33, #73ff00);
+  background-image: -o-linear-gradient(to right,#00ff33, #73ff00);
+  border-width: 3px;
+  border-radius: 15px;
+  color: #ffffff;
+  border-color: #00de2c;
+  font-size: 1.2rem;
+  transition: background-image 1.2s linear;
+}
+
+#login-button:hover{
+  width: 100px;
+  background-image: linear-gradient(to right, #73ff00, #00ff33);
+  background-image: -webkit-linear-gradient(to right,#00ff33, #73ff00);
+  background-image: -o-linear-gradient(to right,#00ff33, #73ff00);
+}
+
+#login-button:active{
+  width: 100px;
+  background-image: linear-gradient(to right,  #ff3721, #a30010);
+  background-image: -webkit-linear-gradient(to right,  #ff3721, #a30010);
+  background-image: -o-linear-gradient(to right,  #ff3721, #a30010);
+  border-color: #a81100;
+}
+
+/* ========================================= sign up ==================================================*/
+.signup-form{
+  width: 100%;
+  height: 500px;
+  margin: 100px 0;
+}
+
+#signup{
+  background-color: #23193b;
+  color: #ffffff;
+  width: 400px;
+  height: 600px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 5px;
+}
+
+#signup h2{
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  -webkit-transform: translate(-50%, -5%);
+  -ms-transform: translate(-50%, -5%);
+  -o-transform: translate(-50%, -5%);
+  margin-top: 20px;
+  font-variant-caps: all-petite-caps;
+  font-size: 2rem;
+}
+
+#signup hr{
+  width: 50%;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  -webkit-transform: translate(-50%, -10%);
+  -ms-transform: translate(-50%, -10%);
+  -o-transform: translate(-50%, -10%);
+  margin: 0;
+  padding: 0;
+  color: #00ff33;
+}
+
+#signup input[type="text"],#signup input[type="password"],#signup input[type="number"],#signup input[type="email"]{
+  width: 80%;
+  margin: 5px;
+  padding: 10px;
+  background: transparent;
+  border-width: 3px;
+  border-radius: 20px;
+  color: #ffffff;
+  border-color: #af7aff;
+  font-size: 1rem;
+  transition: border 0.5s ease-out;
+}
+
+#signup input[name="username"]{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+#signup input[name="email"]{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+#signup input[name="password1"]{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+#signup input[name="password2"]{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+#signup input[name="mobile_number"]{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+
+#signup input[name="address"]{
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+
+#signup input[type="text"]:hover,#signup input[type="email"]:hover,#signup input[type="password"]:hover,#signup input[type="number"]:hover{
+  /* width: 270px; */
+  border-color: #00b3ff;
+  border-radius: 10px;
+}
+
+#signup input[type="text"]:focus,#signup input[type="email"]:focus,#signup input[type="password"]:focus,#signup input[type="number"]:hover{
+  border-color: #00ff33;
+  border-radius: 10px;
+}
+
+#submit-button{
+  position: absolute;
+  bottom: 5%;
+  left: 45%;
+  transform: translate(-45%, -5%);
+  margin: 15px;
+  padding: 5px 15px;
+  background-image: linear-gradient(to right,#00ff33, #73ff00);
+  background-image: -webkit-linear-gradient(to right,#00ff33, #73ff00);
+  background-image: -o-linear-gradient(to right,#00ff33, #73ff00);
+  border-width: 3px;
+  border-radius: 15px;
+  color: #ffffff;
+  border-color: #00de2c;
+  font-size: 1.2rem;
+  transition: background-image 1.2s linear;
+}
+
+#submit-button:hover{
+  width: 120px;
+  background-image: linear-gradient(to right, #73ff00, #00ff33);
+  background-image: -webkit-linear-gradient(to right,#00ff33, #73ff00);
+  background-image: -o-linear-gradient(to right,#00ff33, #73ff00);
+}
+
+#submit-button:active{
+  width: 100px;
+  background-image: linear-gradient(to right,  #ff3721, #a30010);
+  background-image: -webkit-linear-gradient(to right,  #ff3721, #a30010);
+  background-image: -o-linear-gradient(to right,  #ff3721, #a30010);
+  border-color: #a81100;
+}
+
+
+
+
+/* ======================================== cart table ================================ */
+.my-cart table{
+  margin-top: 50px;
+  width: 100%;
+}
+
+.my-cart td, th,td{
+  border: 1px solid #00B7FF;
+  text-align: left;
+  padding: 10px;
+}
+
+.my-cart a{
+  float: right;
+  margin-left: 10px;
+}
+
+.my-cart #qty-final{
+  display: inline-block;
+  padding: 5px 20px;
+  margin-right: 10px;
+  border: 1px solid #8a8a8a;
+}
+
+#remove-button{
+  background-color: #fc8a86;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+#remove-button :hover{
+  text-decoration: none;
+  background-color: #f74d4d;
+}
+
+
+/* ====================== payment ======================*/
+.payment-container{
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+
+/* ============================ dashboard ===========================*/
+.user-image-container{
+  width: 100%;
+}
+.user-image-container img{
+  width: 90%;
+}
+.user-info-container{
+  font-size: 1.2rem;
+}
+
+.user-info-container .password{
+  margin-bottom: 10px;
+}
+
+#change-pass, #change-add{
+  display: none;
+}
+
+/* =====================footer portion starts=================== */
+footer{
+  clear: both;
+  width: 100%;
+  height: auto;
+  padding-bottom: 20px;
+  background-image: linear-gradient(to top, #100630, #010136);
+  color: #98989c;
+  /* background-image: linear-gradient(to right, red , yellow); */
+}
+
+.supports{
+  width: 20%;
+  height: auto;
+  margin: 2% 0;
+  margin-right: 5%;
+  margin-left: 5%;
+  display: inline-block;
+  /* float: left; */
+  text-align: left;
+}
+.supports h3{
+  font-size: 150%;
+}
+
+.account{
+  width: 20%;
+  height: auto;
+  margin: 2% 0;
+  margin-right: 5%;
+  display: inline-block;
+  text-align: left;
+}
+.account h3{
+  font-size: 150%;
+}
+
+footer a{
+  font-size: 90%;
+  text-decoration: none;
+  display: block;
+  color: #98989c;
+}
+
+footer a:hover{
+  color: #ededed;
+}
+
+footer hr{
+  margin-bottom: 5%;
+}
+
+#copyright{
+  clear: both;
+  margin: 0 5%;
+}
+
+/* =====================footer portion ends=================== */

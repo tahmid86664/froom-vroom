@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    .container
+        #admin-login
+            h2 Admin Login
+            form(action="/admin" method="post")
+                .form-group
+                    label(for="username-label") Username
+                    input.form-control(type="text" name="username")
+                .form-group
+                    label(for="password-label") Password
+                    input.form-control(type="password" name="password")
+                button.btn.btn-primary(type="submit" value="submit" name="login") Login

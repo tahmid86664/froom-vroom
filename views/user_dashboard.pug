@@ -1,0 +1,64 @@
+extends layout
+
+block content
+    .container
+        h1 Dashboard
+        .user-profile.row
+            .col-md-4.col-xs-12
+                .user-image-container
+                    img(src="/images/upload/profile/"+user.profile_image alt="user-profile-image")
+                    form(action="/users/"+user.username+"/change/profile_image" method="post" enctype="multipart/form-data")
+                        input.form-control(type="file" name="profile_img")
+                        button.btn.btn-dark(type="submit" name="change_img") Change Image
+            .user-info-container.col-md-8.col-xs-12
+                .username
+                    | Username: #{user.username}
+                .email
+                    | Email: #{user.email}
+                .password
+                    | Password: *******
+                    br
+                    a(href="#change-pass" onclick="showChangePanel('change-pass')") Change Password
+                    .row
+                        .col-md-6.col-xs-12
+                            #change-pass
+                                form(action="/users/"+user.username+"/change/password" method="post" enctype="multipart/form-data")
+                                    input.form-control(type="password" name="change_password")
+                                    button.btn.btn-dark(type="submit" name="change_pass_btn") Change
+                .mobile
+                    | Mobile: #{user.mobile}
+                .address
+                    if user.address != ""
+                        | Address: #{user.address}
+                    else
+                        | Address: not set
+                    br
+                    a(href="#change-address" onclick="showChangePanel('change-add')") Change Address
+                    .row
+                        .col-md-6.col-xs-12
+                            #change-add
+                                form(action="/users/"+user.username+"/change/address" method="post" enctype="multipart/form-data")
+                                    input.form-control(type="password" name="change_password")
+                                    button.btn.btn-dark(type="submit" name="change_pass_btn") Change
+
+        hr
+        .user-purchase
+            h3 Purchased Products
+            table.user-purchase-table
+                tr
+                    th Product Name                    
+                    th Product Qty.
+                    th Product Price
+                    th Purchase Date
+                each p in user.purchase
+                    tr
+                        td= p.product.product_title
+                        td= p.product.product_qty
+                        td BDT#{p.product.product_price * p.product.product_qty}
+                        td= p.date
+    
+    script.
+        function showChangePanel(elementID){
+            let element = document.getElementById(elementID);
+            element.style.display = "block";
+        }

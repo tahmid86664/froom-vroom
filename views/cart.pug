@@ -1,0 +1,38 @@
+extends layout
+
+
+block content
+    .container
+        h1 My Cart
+        .my-cart
+            table
+                tr 
+                    th Item
+                    th Qty.
+                    th Price
+                    th
+                - let total = 0;
+                each item, i in items
+                    tr
+                        td= item.product_title
+                        td
+                            //- input#qty-final(type="number", name="qty" value="#{item.bookQty}" min="1")
+                            div#qty-final= item.product_qty  
+                            a#remove-button(href="/users/mycart/decrease/" +i+ "/" +item.product_id+"/" +item.product_title+"/"+item.product_price +"/"+item.product_qty) &#9940;   
+                            a#remove-button(href="/users/mycart/increase/" +i+ "/" +item.product_id+"/" +item.product_title+"/"+item.product_price +"/"+item.product_qty) &#43;                              
+                        td= item.product_price*item.product_qty
+                        td
+                            a#remove-button(href="/users/mycart/remove/"+i) &#128465; 
+                    - total += item.product_price*item.product_qty;
+                tr 
+                    th(colspan="2") Total
+                    th(colspan="2") BDT#{total.toFixed(2)} 
+                    //- toFixed() is the function jekhane amra bole dite paari
+                    //- koto ghor porjonto doshomik value nibo
+            br
+            a.btn.btn-dark(href="/users/mycart/payments") Proceed 
+            a.btn.btn-dark(href="/") Continue shopping
+            a.btn.btn-dark(href="/users/mycart/clear") Clear Cart
+
+            
+                 

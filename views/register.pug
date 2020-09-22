@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    .container
+        ul.errors
+            if errors
+                each e in errors
+                    li.alert.alert-danger= e.msg
+    .signup-form
+        form#signup(action="/users/register" method="post")
+            h2 Sign up
+            hr
+            input(name='username', type='text', placeholder='username')
+            br
+            input(name='email', type='email', placeholder='email')
+            br
+            input(name='password1', type='password', placeholder='password')
+            br
+            input(name='password2', type='password', placeholder='confirm password')
+            br
+            input(name='mobile_number', type='text', placeholder='mobile number')
+            br
+            input(name='address', type='text', placeholder='address (not required now)')
+            br
+            input#submit-button(type='submit', value='Sign up')

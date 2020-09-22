@@ -1,0 +1,91 @@
+extends layout
+
+block content
+    .my-container
+        if (!subcategory)
+            .container
+                p.category-line            
+                    | All>#{category}>#{product.product_title}>
+                .individual-product-container
+                    .individual-product-img-container
+                        img(src='/images/upload/products/'+product.product_image, alt=product.product_title)
+                    .individual-product-info-container
+                        h2= product.product_title
+                        .individual-product-price
+                            | BDT#{product.product_price}
+                        .individual-product-description
+                            | #{product.product_description}
+                        br
+                        div.buy-button-class
+                            form(method="post")
+                                .form-group
+                                    label(for="qtyLabel") Qty 
+                                    input(type="number", name="qty", min="1" id="qty-input")
+                                button.btn.btn-dark(type="submit", name="add_to_cart_btn" formaction="/categories/show/"+category+"/"+product._id+"/addtocart") Add to cart
+                                br
+                                button.btn.btn-dark(type="submit", name="buy_now_btn", formaction="/categories/show/"+category+"/"+product._id+"/buynow") Buy now
+                hr
+                .row
+                    .question-container.col-xs-12.col-md-4
+                        form(action="/categories/show/"+category+"/"+product._id+"/question", method='post')
+                            label(for="questionLabel") Ask any question
+                            input.form-control(type="text", name="question" placeholder="here...")
+                            br
+                            button.btn.btn-primary(type='submit', value="submit") Submit
+                    .comments-container.col-xs-12.col-md-8
+                        if comments
+                            each comment in comments
+                                .row
+                                    .image-container.col-md-1
+                                        img(src="/images/upload/profile/#{comment.personImage}")
+                                    .comment-container.col-md-11
+                                        h5= comment.person
+                                        p= comment.question
+                                        a(href="#") Reply
+                                    br
+        else
+            .container
+                p.category-line            
+                    | All>#{category}>#{subcategory}>#{product.product_title}>
+                .individual-product-container
+                    .individual-product-img-container
+                        img(src='/images/upload/products/'+product.product_image, alt=product.product_title)
+                    .individual-product-info-container
+                        h2= product.product_title
+                        .individual-product-price
+                            | BDT#{product.product_price}
+                        .individual-product-description
+                            | #{product.product_description}
+                        br
+                        div.buy-button-class
+                            form(method="post")
+                                .form-group
+                                    label(for="qtyLabel") Qty 
+                                    input(type="number", name="qty", min="1" id="qty-input")
+                                button.btn.btn-dark(type="submit", name="add_to_cart_btn" formaction="/categories/show/"+category+"/"+subcategory+"/"+product._id+"/addtocart") Add to cart
+                                br
+                                button.btn.btn-dark(type="submit", name="buy_now_btn", formaction="/categories/show/"+category+"/"+subcategory+"/"+product._id+"/buynow") Buy now
+
+                hr
+                .row
+                    .question-container.col-xs-12.col-md-4
+                        form(action="/categories/show/"+category+"/"+subcategory+"/"+product._id+"/question", method='post')
+                            label(for="questionLabel") Ask any question
+                            input.form-control(type="text", name="question" placeholder="here...")
+                            br
+                            button.btn.btn-primary(type='submit', value="submit") Submit
+                    .comments-container.col-xs-12.col-md-8
+                        if comments
+                            each comment in comments
+                                .row
+                                    .image-container.col-md-2
+                                        img(src="/images/upload/profile/"+comment.personImage)
+                                    .comment-container.col-md-10
+                                        h5= comment.person
+                                        p= comment.question
+                                        a(href="#") Reply
+                                    br
+
+
+
+            

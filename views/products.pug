@@ -1,0 +1,49 @@
+extends layout
+
+block content
+    .my-container
+        if category
+            if (!subcategory)
+                p.category-line
+                    | All>#{category.category_name}>
+                .container
+                    if products
+                        each product in products
+                            .product-container
+                                .product-image-container
+                                    a(href="/categories/show/" + category.category_name + "/" + product._id)
+                                        img(src='/images/upload/products/'+product.product_image, alt=product.product_title)
+                                .product-info-container
+                                    .product-title
+                                        | #{product.product_title}
+                                    .product-price
+                                        | BDT#{product.product_price}
+                                    .product-description
+                                        | #{product.product_description}
+                                    a(href="/categories/show/" + category.category_name + "/" + product._id) View
+                            br
+                    elseif 
+                        h1 No Product Added
+
+                        
+            else
+                p.category-line
+                    | All>#{category.category_name}>#{subcategory}
+                .container
+                    if products
+                        each product in products
+                            .product-container
+                                .product-image-container
+                                    a(href="/categories/show/" + category.category_name + "/" + subcategory + "/" + product._id)
+                                        img(src='/images/upload/products/'+product.product_image, alt=product.product_title)
+                                .product-info-container
+                                    .product-title
+                                        | #{product.product_title}
+                                    .product-price
+                                        | BDT#{product.product_price}
+                                    .product-description
+                                        | #{product.product_description}
+                                    a(href="/categories/show/" + category.category_name + "/" + subcategory + "/" + product._id) View
+                            br
+                    else
+                        h1 No Product Added

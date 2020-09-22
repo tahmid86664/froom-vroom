@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    .payment-container
+        h2 Payment Method
+        br
+        h5 Username: #{user.username}
+        form(action="/users/"+user._id+"/payment-method" method="post")
+            .form-group
+                label(for='addressLabel') Address
+                input.form-control(type="text", name="address")
+            button.btn.btn-dark(type="submit") Submit
